@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecoenergy - Midiendo hoy, ahorrando mañana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">ECO</div>
+                <div class="brand-info">
+                    <h1>Ecoenergy</h1>
+                    <p>midiendo hoy, ahorrando mañana</p>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar...">
+                <button type="submit">🔍</button>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="login-btn">Iniciar Sesión</a>
+                <a href="#" class="pages-btn">Páginas Web</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Controla tu Consumo Energético</h1>
+        <p>
+            Descubre el poder de la eficiencia energética con nuestros medidores inteligentes. 
+            Monitorea en tiempo real tu consumo eléctrico, identifica patrones de uso y toma 
+            decisiones informadas para reducir tanto tu factura como tu huella de carbono. 
+            Con Ecoenergy, cada kilovatio cuenta hacia un futuro más sostenible.
+        </p>
+        <div class="divider"></div>
+    </section>
+
+    <!-- Image Carousel -->
+    <section class="carousel-container">
+        <div class="carousel" id="imageCarousel">
+            <div class="carousel-inner" id="imageCarouselInner">
+                <div class="carousel-slide">Imagen 1 - Medidores Inteligentes</div>
+                <div class="carousel-slide">Imagen 2 - Dashboard de Monitoreo</div>
+                <div class="carousel-slide">Imagen 3 - Ahorro Energético</div>
+                <div class="carousel-slide">Imagen 4 - Tecnología Verde</div>
+                <div class="carousel-slide">Imagen 5 - Sostenibilidad</div>
+            </div>
+            <button class="carousel-nav carousel-prev" onclick="prevSlide('imageCarousel')">❮</button>
+            <button class="carousel-nav carousel-next" onclick="nextSlide('imageCarousel')">❯</button>
+        </div>
+    </section>
+
+    <!-- Mission Vision Carousel -->
+    <section class="mission-carousel">
+        <div class="carousel" id="missionCarousel">
+            <div class="carousel-inner" id="missionCarouselInner">
+                <div class="mission-slide">
+                    <h3>Nuestra Misión</h3>
+                    <p>Empoderar a hogares y empresas con tecnología de monitoreo energético de vanguardia, 
+                    proporcionando herramientas intuitivas y precisas que permitan tomar decisiones informadas 
+                    sobre el consumo eléctrico. Nos comprometemos a hacer la eficiencia energética accesible 
+                    para todos, contribuyendo a un planeta más sostenible y facturas más económicas.</p>
+                </div>
+                <div class="mission-slide">
+                    <h3>Nuestra Visión</h3>
+                    <p>Ser la plataforma líder en monitoreo energético inteligente, presente en cada hogar 
+                    y empresa que busque optimizar su consumo eléctrico. Aspiramos a crear un mundo donde 
+                    la eficiencia energética sea la norma, no la excepción, impulsando la transición hacia 
+                    un futuro energético más limpio y sostenible para las próximas generaciones.</p>
+                </div>
+                <div class="mission-slide">
+                    <h3>Nuestro Compromiso</h3>
+                    <p>Nos comprometemos a ofrecer productos de la más alta calidad, respaldados por un 
+                    servicio al cliente excepcional y constante innovación tecnológica. Trabajamos 
+                    incansablemente para garantizar que nuestros usuarios no solo ahorren energía y dinero, 
+                    sino que también contribuyan activamente a la preservación del medio ambiente.</p>
+                </div>
+            </div>
+            <button class="carousel-nav carousel-prev" onclick="prevSlide('missionCarousel')">❮</button>
+            <button class="carousel-nav carousel-next" onclick="nextSlide('missionCarousel')">❯</button>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works">
+        <h2>¿Cómo funciona nuestro monitor?</h2>
+        <div class="how-content">
+            <div class="monitor-explanation">
+                <p><strong>Nuestro sistema de monitoreo energético funciona mediante tres pasos simples:</strong></p>
+                <br>
+                <p><strong>1. Instalación Inteligente:</strong> El dispositivo se conecta directamente a tu panel eléctrico principal mediante sensores no invasivos que detectan el flujo de corriente sin necesidad de cortar cables o realizar modificaciones complejas.</p>
+                <br>
+                <p><strong>2. Monitoreo en Tiempo Real:</strong> Una vez instalado, el monitor captura datos cada segundo sobre el consumo energético de tu hogar o negocio. Utiliza algoritmos avanzados para identificar patrones de uso, picos de consumo y dispositivos que más energía consumen.</p>
+                <br>
+                <p><strong>3. Análisis y Reportes:</strong> Toda la información se procesa y se presenta a través de nuestra aplicación móvil y plataforma web, donde puedes visualizar gráficos detallados, recibir alertas de consumo excesivo y obtener recomendaciones personalizadas para optimizar tu uso energético.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Policies -->
+    <section class="quality-section">
+        <h2>Políticas de Calidad</h2>
+        <div class="quality-content">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Comprometidos con la excelencia en medición y ahorro energético
+            </p>
+            <div class="metrics-display">
+                <div class="metric-card">
+                    <div class="metric-value">99.9%</div>
+                    <div class="metric-label">Precisión en medición</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">35%</div>
+                    <div class="metric-label">Promedio de ahorro energético</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Monitoreo continuo</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Satisfacción garantizada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews-section">
+        <h2>Referencias de Nuestros Clientes</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Increíble cómo he podido reducir mi factura eléctrica en un 40%. El monitor es muy fácil de usar y las recomendaciones son muy precisas."</p>
+                <p class="reviewer-name">- María González</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"La instalación fue súper sencilla y en pocos días ya estaba viendo resultados. Recomiendo Ecoenergy al 100%."</p>
+                <p class="reviewer-name">- Carlos Rodríguez</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <p class="review-text">"Excelente producto, me ha ayudado a entender mejor mi consumo energético. El soporte técnico es muy eficiente."</p>
+                <p class="reviewer-name">- Ana Martínez</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Como empresario, este sistema me ha permitido optimizar los costos operativos de mi negocio significativamente."</p>
+                <p class="reviewer-name">- Roberto Silva</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"La interfaz es muy intuitiva y los reportes son detallados. Una inversión que se paga sola."</p>
+                <p class="reviewer-name">- Laura Fernández</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <p class="review-text">"Muy contento con la compra. El ahorro ha sido notable y el producto es de muy buena calidad."</p>
+                <p class="reviewer-name">- Diego Morales</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">ECO</div>
+                <p>Ecoenergy</p>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="contact-info">
+                <h3>Atención al Cliente</h3>
+                <p> Dirección: Calle Verde 123, Medellín</p>
+                <p> Teléfono: +57 (4) 123-4567</p>
+                <p> Email: contacto@ecoenergy.com</p>
+                <p> Horario: Lun-Vie 8:00-18:00</p>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="contact-info">
+                <h3>Soporte Técnico</h3>
+                <p>🔧 Soporte: +57 (4) 123-4568</p>
+                <p> Chat en línea</p>
+                <p> WhatsApp: +57 300 123 4567</p>
+                <p> Portal de ayuda online</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ecoenergy. Todos los derechos reservados. Midiendo hoy, ahorrando mañana.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
