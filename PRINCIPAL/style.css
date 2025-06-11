@@ -13,9 +13,9 @@ body {
 
 /* Navbar */
 .navbar {
-    background: linear-gradient(135deg, #4ac04a, #10581cad);
+    background: linear-gradient(135deg, #51cc00, #078607);
     padding: 1rem 2rem;
-    box-shadow: 0 4px 20px rgba(51, 50, 50, 0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -44,7 +44,7 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color:yellowgreen;
+    color: #409c03;
     font-size: 1.2rem;
 }
 
@@ -83,7 +83,7 @@ body {
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
-    background: #2d5a2d;
+    background: #66ce21;
     color: white;
     border: none;
     border-radius: 50%;
@@ -94,7 +94,7 @@ body {
 }
 
 .search-bar button:hover {
-    background: yellowgreen;
+    background: #078607;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -129,7 +129,7 @@ body {
 }
 
 .hero h1 {
-    color: #57d63e;
+    color: #078607;
     font-size: 3rem;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
@@ -147,7 +147,7 @@ body {
 .divider {
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #49b149, #4a7c59);
+    background: linear-gradient(90deg, #078607, #63c423,#078607);
     margin: 3rem auto;
     border-radius: 2px;
     animation: expandWidth 1s ease 0.6s both;
@@ -190,7 +190,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #4dc24d;
+    background: #2d5a2d;
     color: white;
     border: none;
     width: 50px;
@@ -232,7 +232,7 @@ body {
 }
 
 .mission-slide h3 {
-    color: #2d5a2d;
+    color: #078607;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
@@ -250,7 +250,7 @@ body {
 }
 
 .how-it-works h2 {
-    color: #2d5a2d;
+    color: #078607;
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
@@ -286,7 +286,7 @@ body {
 }
 
 .quality-section h2 {
-    color: #2d5a2d;
+    color: #078607;
     font-size: 2.5rem;
     margin-bottom: 3rem;
 }
@@ -329,7 +329,7 @@ body {
 }
 
 .reviews-section h2 {
-    color: #2d5a2d;
+    color: #078607;
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
@@ -374,7 +374,7 @@ body {
 
 /* Footer */
 .footer {
-    background: #1a3d1a;
+    background: linear-gradient(135deg, #51cc00, #078607); #078607;
     color: white;
     padding: 3rem 2rem 2rem;
 }
@@ -409,7 +409,7 @@ body {
 }
 
 .contact-info h3 {
-    color: #4a7c59;
+    color: white;
     margin-bottom: 1rem;
 }
 
