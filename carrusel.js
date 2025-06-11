@@ -24,10 +24,6 @@ function updateCarousel(carouselId) {
     carousel.style.transform = `translateX(${translateX}%)`;
 }
 
-// Auto-play for image carousel
-setInterval(() => {
-    nextSlide('imageCarousel');
-}, 4000);
 
 // Smooth scrolling animation for quality section
 window.addEventListener('scroll', () => {
