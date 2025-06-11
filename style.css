@@ -13,7 +13,7 @@ body {
 
 /* Navbar */
 .navbar {
-    background: linear-gradient(135deg, #51cc00, #078607);
+    background: linear-gradient(135deg,#3e9801,#48b401,#5eda0b );
     padding: 1rem 2rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     position: sticky;
@@ -56,7 +56,7 @@ body {
 }
 
 .brand-info p {
-    color: #a8d4a8;
+    color: #d4ffcee6;
     font-size: 0.9rem;
     font-style: italic;
 }
@@ -83,8 +83,8 @@ body {
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
-    background: #66ce21;
-    color: white;
+    background: rgba(255, 255, 255, 0);
+    color: rgba(241, 255, 231, 0.999);
     border: none;
     border-radius: 50%;
     width: 35px;
@@ -94,7 +94,7 @@ body {
 }
 
 .search-bar button:hover {
-    background: #078607;
+    background: #93c893ae;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -104,22 +104,16 @@ body {
     align-items: center;
 }
 
-.login-btn, .pages-btn {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: 2px solid rgba(255,255,255,0.3);
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
+.btn-icono img {
+    transition: transform 0.3s ease;
+    border-radius: 10%;
 }
 
-.login-btn:hover, .pages-btn:hover {
-    background: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.btn-icono:hover img {
+    background: #48b401;
+    transform: scale(1.20);
 }
+
 
 /* Hero Section */
 .hero {
@@ -128,7 +122,7 @@ body {
     text-align: center;
 }
 
-.hero h1 {
+.hero h2 {
     color: #078607;
     font-size: 3rem;
     margin-bottom: 2rem;
@@ -177,7 +171,7 @@ body {
 .carousel-slide {
     min-width: 100%;
     height: 300px;
-    background: linear-gradient(45deg, #e8f5e8, #d0e7d0);
+    background: linear-gradient(40deg, #e8f5e8, #d0e7d0);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,11 +181,11 @@ body {
 }
 
 .carousel-nav {
-    position: absolute;
+    position:absolute;
     top: 50%;
     transform: translateY(-50%);
     background: #2d5a2d;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     width: 50px;
     height: 50px;
@@ -204,6 +198,7 @@ body {
 
 .carousel-nav:hover {
     background: #1a3d1a;
+    top: 50%;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -219,37 +214,86 @@ body {
 .mission-carousel {
     background: #f8fdf8;
     padding: 4rem 2rem;
+    overflow: hidden;
+    position: relative;
+}
+
+#missionCarouselInner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .mission-slide {
-    min-width: 100%;
+    flex: 0 0 100%;
     padding: 3rem;
     text-align: center;
-    background: white;
-    margin: 0 10px;
+    background: linear-gradient(40deg, #ffffff, #fafffa);
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Títulos */
 .mission-slide h3 {
     color: #078607;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
+/* Párrafos */
 .mission-slide p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
+    max-width: 800px;
 }
+
+/* Botones de navegación del carrusel */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(34, 143, 20, 0.541);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-nav:hover {
+    background: rgba(14, 64, 8, 0.662);
+    top: 50%;
+    transform: translateY(-50%) scale(1.1);
+}
+}
+
 
 /* How it works */
 .how-it-works {
     padding: 4rem 2rem;
     background: white;
+    overflow: hidden;
+    position: relative;
 }
 
 .how-it-works h2 {
+    margin-top: 3rem;
     color: #078607;
     font-size: 2.5rem;
     text-align: center;
@@ -269,7 +313,8 @@ body {
     background: #f8fdf8;
     padding: 2rem;
     border-radius: 15px;
-    border-left: 5px solid #2d5a2d;
+    border-left: 5px solid #216221c9;
+    margin-bottom: 3rem;
 }
 
 /* Quality Policies */
@@ -389,7 +434,7 @@ body {
 }
 
 .footer-divider {
-    background: #2d5a2d;
+    background: #038e03;
     width: 3px;
     height: 100%;
     border-radius: 2px;
@@ -421,7 +466,6 @@ body {
     text-align: center;
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #2d5a2d;
     color: #a8d4a8;
 }
 
