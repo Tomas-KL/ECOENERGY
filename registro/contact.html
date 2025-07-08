@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Ecoenergy</title>
+    <link rel="stylesheet" href="contact-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">ECO</div>
+        <h1>Ecoenergy</h1>
+        <p>Midiendo hoy, ahorrando mañana</p>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h2 class="form-title">Solicita una Reunión</h2>
+        <p class="form-subtitle">Te invitamos a descubrir todos los beneficios de nuestras soluciones de monitoreo energético</p>
+        
+        <form id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+
+            <div class="form-group">
+                <label for="comentario">Déjanos un mensaje si quieres detallar lo que te gustaría conversar</label>
+                <textarea id="comentario" name="comentario" placeholder="Cuéntanos sobre tu proyecto o necesidades energéticas..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Solicitar Reunión</button>
+        </form>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+        <h3>Información de Contacto</h3>
+        <div class="contact-details">
+            <div class="contact-item">
+                <strong>Email:</strong> eco.energyof@gmail.com
+            </div>
+            <div class="contact-item">
+                <strong>Teléfono:</strong> +57 311 4208724
+            </div>
+            <div class="contact-item">
+                <strong>Horario:</strong> Lun-Vie 8:00-18:00
+            </div>
+            <div class="contact-item">
+                <strong>Dirección:</strong> Calle Verde 123, Medellín
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const correo = document.getElementById('correo').value;
+            const telefono = document.getElementById('telefono').value;
+            const comentario = document.getElementById('comentario').value;
+            
+            // Validación simple
+            if (!nombre || !apellido || !correo || !telefono) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Simulación de envío
+            alert('¡Gracias por tu solicitud! Te contactaremos pronto para programar tu reunión.');
+            
+            // Limpiar formulario
+            this.reset();
+        });
+    </script>
+</body>
+</html>

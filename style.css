@@ -306,7 +306,7 @@ body {
     top: 50%;
     transform: translateY(-50%) scale(1.1);
 }
-}
+
 
 
 /* How it works */
@@ -446,7 +446,7 @@ body {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #51cc00, #078607); #078607;
+    background: linear-gradient(135deg, #51cc00, #078607); 
     color: white;
     padding: 3rem 2rem 2rem;
 }
