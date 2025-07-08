@@ -155,7 +155,7 @@ body {
 
 .carousel {
     position: relative;
-    max-width: 1000px;
+    max-width: 600px;
     margin: 0 auto;
     background: white;
     border-radius: 15px;
@@ -169,16 +169,20 @@ body {
 }
 
 .carousel-slide {
+    position: relative;
     min-width: 100%;
-    height: 300px;
-    background: linear-gradient(40deg, #e8f5e8, #d0e7d0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #2d5a2d;
-    font-weight: bold;
+    height: 500px;
+    overflow: hidden;
 }
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 
 .carousel-nav {
     position:absolute;
@@ -208,6 +212,27 @@ body {
 
 .carousel-next {
     right: 20px;
+}
+/* ---------------  SOLO PARA EL CARRUSEL DE IMÁGENES --------------- */
+#imageCarousel .carousel-slide{
+    /* Centro la imagen dentro del slide para que el margen quede simétrico */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 0.5rem;          /* ajusta el margen interno: 0.5 rem ≈ 8 px */
+    box-sizing: border-box;   /* hace que el padding no agrande el slide */
+}
+
+/* La imagen ahora mide el 90 % del slide; puede ser 85 %, 80 %, etc. */
+#imageCarousel .carousel-slide img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;      /* si quieres que no se recorte nada */
+    /* Si prefieres que siga “cubriendo” y se corte un poco, usa: object-fit: cover; */
+    border-radius: 10px;      /* opcional: bordes curvos para la foto */
+}
+#missionCarousel{
+    max-width: 1000px;            /* si quieres, déjalo fuera y heredará de .carousel */
 }
 
 /* Mission Vision Carousel */
@@ -334,6 +359,7 @@ body {
     color: #078607;
     font-size: 2.5rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .metrics-display {
@@ -397,7 +423,8 @@ body {
 }
 
 .review-card:hover {
-    transform: translateY(-5px);
+    background: #6d8b6d34;
+    transform: translateY(-10px);
 }
 
 .stars {
