@@ -132,7 +132,7 @@ textarea {
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #078607, #48b401);
+    background: linear-gradient(15deg,#409c03, #409c03);
     color: white;
     border: none;
     border-radius: 8px;
@@ -146,13 +146,39 @@ textarea {
 }
 
 .submit-btn:hover {
-    background: linear-gradient(135deg, #065d05, #3a9001);
+    background: linear-gradient(15deg, #065d05, #078607);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(7, 134, 7, 0.3);
 }
 
-.submit-btn:active {
-    transform: translateY(0);
+/* Contenedor centrado */
+.centrar-boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Botón pequeño de regresar */
+.btn-regresar {
+    width: 200px;
+    padding: 12px;
+    background: linear-gradient(15deg,#409c03, #409c03);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background: linear-gradient(135deg, #065d05, #078607);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(7, 134, 7, 0.3);
 }
 
 /* Contact Info */
