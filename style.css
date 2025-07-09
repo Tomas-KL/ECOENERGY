@@ -103,6 +103,33 @@ body {
     gap: 20px;
     align-items: center;
 }
+.btn-contacto {
+    background-color: #ffffff;
+    color: #078607;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-contacto:hover {
+    background-color: #078607;
+    color:#ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Opcional: para que los iconos sociales no cambien */
+.btn-icono img {
+    transition: transform 0.2s;
+}
+.btn-icono img:hover {
+    transform: scale(1.1);
+}
 
 .btn-icono img {
     transition: transform 0.3s ease;
@@ -446,7 +473,7 @@ body {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, #51cc00, #078607); 
+    background: linear-gradient(135deg, #51cc00, #078607);
     color: white;
     padding: 3rem 2rem 2rem;
 }
