@@ -75,8 +75,11 @@
             gap: 1rem;
             align-items: center;
         }
-
-        .btn-back {
+        .admin-user {
+            color: white;
+            font-size: 0.9rem;
+        }
+        .btn-logout {
             background: linear-gradient(135deg, #ffffff, #f0f0f0);
             color: #078607;
             padding: 10px 20px;
@@ -90,15 +93,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .btn-back:hover {
+        .btn-logout:hover {
             background: linear-gradient(135deg, #078607, #48b401);
             color: white;
             transform: translateY(-2px);
-        }
-
-        .admin-user {
-            color: white;
-            font-size: 0.9rem;
         }
 
         /* ===========================================
