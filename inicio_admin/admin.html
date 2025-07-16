@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - Ecoenergy</title>
     <link rel="stylesheet" href="admin-style.css">
+    
+    <script>
+        // Verificar si ya está logueado
+        if (sessionStorage.getItem('usuario') === 'admin') {
+            window.location.href = 'tabla_admin/tabla.html'; // Redirige al panel si ya está logueado
+        }
+    </script>
 </head>
 <body>
     <!-- Login Section -->

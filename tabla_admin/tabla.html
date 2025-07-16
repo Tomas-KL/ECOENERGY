@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración seguro para gestión de solicitudes">
+<meta name="author" content="Ecoenergy">
+<title>Panel de Administración - Ecoenergy</title>
     <title>Panel de Administración - Ecoenergy</title>
     <link rel="stylesheet" href="tabla.css">
 </head>
 <body>
     <!-- =============================================
-         HEADER/NAVBAR DEL PANEL DE ADMINISTRACIÓN
+    HEADER/NAVB ARDEL PANEL DE ADMINISTRACIÓN
     ============================================= -->
     <header class="admin-header">
         <div class="header-container">
@@ -16,13 +19,40 @@
                 <div class="logo">ECO</div>
                 <div class="admin-title">
                     <h1>Panel de Administración</h1>
+                    <script>
+                        // Verificar autenticación al cargar la página
+                        if (sessionStorage.getItem('usuario') !== 'admin') {
+                            alert('Acceso denegado. Solo los administradores pueden acceder a esta página.');
+                            window.location.href = '../index.html';
+                        }
+                    </script>
                     <p>Gestión de solicitudes de reuniones</p>
                 </div>
             </div>
             <div class="admin-actions">
                 <a href="../index.html" class="btn-back">← Volver al sitio</a>
-                <div class="admin-user">Admin: Juan Pérez</div>
+                <div class="admin-user">Admin: JUAN</div>
+                <button onclick="cerrarSesion()" class="btn-logout">🔐 Cerrar Sesión</button>
             </div>
+            <script>
+                // Función para cerrar sesión
+                function cerrarSesion() {
+                    if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
+                        sessionStorage.removeItem('usuario');
+                        alert('Sesión cerrada exitosamente');
+                        window.location.href = '../index.html';
+                    }
+                }
+        
+                // Verificar sesión periódicamente (cada 30 segundos)
+                setInterval(function() {
+                    if (sessionStorage.getItem('usuario') !== 'admin') {
+                        alert('Tu sesión ha expirado. Serás redirigido al inicio.');
+                        window.location.href = '../index.html';
+                    }
+                }, 30000);
+            </script>
+        </body>
         </div>
     </header>
 
@@ -229,7 +259,49 @@
                 </tbody>
             </table>
         </div>
-
+        <script>
+            // Credenciales del administrador
+            const ADMIN_USERNAME = 'admin';
+            const ADMIN_PASSWORD = 'admin123';
+            
+            // Función para manejar el login
+            function handleLogin(event) {
+                event.preventDefault(); // Previene el envío normal del formulario
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const errorMessage = document.getElementById('errorMessage');
+                
+                // Verificar credenciales
+                if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                    // Login exitoso
+                    sessionStorage.setItem('usuario', 'admin');
+                    errorMessage.textContent = '';
+                    alert('¡Bienvenido Administrador!');
+                    window.location.href = 'tabla.html';
+                } else {
+                    // Login fallido
+                    errorMessage.textContent = 'Usuario o contraseña incorrectos';
+                    errorMessage.style.color = 'red';
+                    
+                    // Limpiar campos
+                    document.getElementById('username').value = '';
+                    document.getElementById('password').value = '';
+                }
+            }
+            
+            // Agregar evento al formulario cuando la página cargue
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            });
+            
+            // Permitir login con Enter
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleLogin(e);
+                }
+            });
+        </script>
         <!-- Información de paginación -->
         <div class="pagination-container">
             <div class="pagination-info">
