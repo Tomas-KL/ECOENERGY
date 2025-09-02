@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración seguro para gestión de solicitudes">
+    <meta name="author" content="Ecoenergy">
+    <title>Panel de Administración - Ecoenergy</title>
+    <link rel="stylesheet" href="css/tabla.css">
+</head>
+<body>
+    <!-- =============================================
+    HEADER/NAVBAR DEL PANEL DE ADMINISTRACIÓN
+    ============================================= -->
+    <header class="admin-header">
+        <div class="header-container">
+            <div class="admin-logo">
+                <div class="logo">ECO</div>
+                <div class="admin-title">
+                    <h1>Panel de Administración</h1>
+                    <p>Gestión de solicitudes de reuniones</p>
+                </div>
+            </div>
+            <div class="admin-actions">
+                <div class="admin-user">Admin:XD</div>
+                <button onclick="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =============================================
+        CONTENEDOR PRINCIPAL DEL PANEL
+    ============================================= -->
+    <div class="admin-container">
+        <!-- Header del panel con estadísticas -->
+        <div class="panel-header">
+            <h2>Solicitudes de Reuniones</h2>
+            <p>Gestiona todas las solicitudes de reuniones recibidas a través del formulario de contacto</p>
+            <div class="panel-stats">
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Pendientes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Leídas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Resueltas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles de filtros y búsqueda -->
+        <div class="table-controls">
+            <div class="filter-group">
+                <label for="statusFilter">Filtrar por estado:</label>
+                <select id="statusFilter" class="filter-select">
+                    <option value="all">Todos</option>
+                    <option value="pending">Pendientes</option>
+                    <option value="read">Leídas</option>
+                    <option value="resolved">Resueltas</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <input type="text" id="searchInput" class="search-input" placeholder="Buscar por nombre o email...">
+                <button class="btn-refresh"> Actualizar</button>
+            </div>
+        </div>
+
+        <!-- Tabla principal de solicitudes -->
+        <div class="table-container">
+            <table class="requests-table">
+                <thead>
+                    <tr>
+                        <th class="col-id">ID</th>
+                        <th class="col-name">Nombre</th>
+                        <th class="col-email">Email</th>
+                        <th class="col-phone">Teléfono</th>
+                        <th class="col-message">Mensaje</th>
+                        <th class="col-date">Fecha</th>
+                        <th class="col-status">Estado</th>
+                        <th class="col-actions">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fila de ejemplo 1 -->
+                    <tr>
+                        <td class="col-id">001</td>
+                        <td class="col-name">
+                            <div class="contact-info">María González</div>
+                        </td>
+                        <td class="col-email">maria.gonzalez@email.com</td>
+                        <td class="col-phone">+57 300 123 4567</td>
+                        <td class="col-message">
+                            <div class="message-cell">
+                                Hola, estoy interesada en conocer más sobre los medidores inteligentes para mi casa. Me gustaría saber los precios y si ofrecen instalación. Tengo una casa de 120m² en Medellín y quiero optimizar mi consumo energético.
+                            </div>
+                        </td>
+                        <td class="col-date">
+                            <div class="date-cell">2025-01-15<br>10:30 AM</div>
+                        </td>
+                        <td class="col-status">
+                            <select class="status-selector status-pending">
+                                <option value="pending">Pendiente</option>
+                                <option value="read">Leída</option>
+                                <option value="resolved">Resuelta</option>
+                            </select>
+                        </td>
+                        <td class="col-actions">
+                            <button class="btn-delete"> Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <!-- Fila de ejemplo 2 -->
+                    <tr>
+                        <td class="col-id">002</td>
+                        <td class="col-name">
+                            <div class="contact-info">Carlos Rodríguez</div>
+                        </td>
+                        <td class="col-email">carlos.rodriguez@empresa.com</td>
+                        <td class="col-phone">+57 311 987 6543</td>
+                        <td class="col-message">
+                            <div class="message-cell">
+                                Necesito cotización para instalación de sistema de monitoreo energético en mi oficina. Somos una empresa de 50 empleados.
+                            </div>
+                        </td>
+                        <td class="col-date">
+                            <div class="date-cell">2025-01-14<br>02:15 PM</div>
+                        </td>
+                        <td class="col-status">
+                            <select class="status-selector status-read">
+                                <option value="pending">Pendiente</option>
+                                <option value="read" selected>Leída</option>
+                                <option value="resolved">Resuelta</option>
+                            </select>
+                        </td>
+                        <td class="col-actions">
+                            <button class="btn-delete"> Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <!-- Fila de ejemplo 3 -->
+                    <tr>
+                        <td class="col-id">003</td>
+                        <td class="col-name">
+                            <div class="contact-info">Ana Martínez</div>
+                        </td>
+                        <td class="col-email">ana.martinez@gmail.com</td>
+                        <td class="col-phone">+57 320 456 7890</td>
+                        <td class="col-message">
+                            <div class="message-cell">
+                                ¡Excelente servicio! Ya tengo instalado el monitor y funciona perfectamente. Quería agradecer el soporte técnico.
+                            </div>
+                        </td>
+                        <td class="col-date">
+                            <div class="date-cell">2025-01-13<br>09:45 AM</div>
+                        </td>
+                        <td class="col-status">
+                            <select class="status-selector status-resolved">
+                                <option value="pending">Pendiente</option>
+                                <option value="read">Leída</option>
+                                <option value="resolved" selected>Resuelta</option>
+                            </select>
+                        </td>
+                        <td class="col-actions">
+                            <button class="btn-delete"> Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <!-- Fila de ejemplo 4 -->
+                    <tr>
+                        <td class="col-id">004</td>
+                        <td class="col-name">
+                            <div class="contact-info">Roberto Silva</div>
+                        </td>
+                        <td class="col-email">roberto.silva@hotmail.com</td>
+                        <td class="col-phone">+57 315 234 5678</td>
+                        <td class="col-message">
+                            <div class="message-cell">
+                                Buenos días, me interesa el producto para mi restaurante. Necesito información sobre compatibilidad con equipos industriales y garantía del producto.
+                            </div>
+                        </td>
+                        <td class="col-date">
+                            <div class="date-cell">2025-01-12<br>04:20 PM</div>
+                        </td>
+                        <td class="col-status">
+                            <select class="status-selector status-pending">
+                                <option value="pending" selected>Pendiente</option>
+                                <option value="read">Leída</option>
+                                <option value="resolved">Resuelta</option>
+                            </select>
+                        </td>
+                        <td class="col-actions">
+                            <button class="btn-delete">Eliminar</button>
+                        </td>
+                    </tr>
+
+                    <!-- Fila de ejemplo 5 -->
+                    <tr>
+                        <td class="col-id">005</td>
+                        <td class="col-name">
+                            <div class="contact-info">Laura Fernández</div>
+                        </td>
+                        <td class="col-email">laura.fernandez@universidad.edu</td>
+                        <td class="col-phone">+57 301 345 6789</td>
+                        <td class="col-message">
+                            <div class="message-cell">
+                                Hola, soy estudiante de ingeniería y estoy haciendo una tesis sobre eficiencia energética. Me gustaría conocer más sobre la tecnología que utilizan.
+                            </div>
+                        </td>
+                        <td class="col-date">
+                            <div class="date-cell">2025-01-11<br>11:10 AM</div>
+                        </td>
+                        <td class="col-status">
+                            <select class="status-selector status-read">
+                                <option value="pending">Pendiente</option>
+                                <option value="read" selected>Leída</option>
+                                <option value="resolved">Resuelta</option>
+                            </select>
+                        </td>
+                        <td class="col-actions">
+                            <button class="btn-delete">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Información de paginación -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                Mostrando 5 de 12 solicitudes totales
+            </div>
+        </div>
+    </div>
+
+    <script src="js/tabla_admin.js"></script>
+</body>
+</html>
