@@ -19,4 +19,5 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     
     // Limpiar formulario
     this.reset();
+    
 });
