@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Ecoenergy</title>
+    <title>Reseñas - Ecoenergy</title>
     <link rel="stylesheet" href="contact-styles.css">
 </head>
 <body>
@@ -20,32 +20,18 @@
         <p class="form-subtitle">Te invitamos a descubrir todos los beneficios de nuestras soluciones de monitoreo energético</p>
         
         <form id="contactForm">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="apellido" required>
-                </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
             </div>
 
             <div class="form-group">
-                <label for="correo">Correo Electrónico</label>
-                <input type="email" id="correo" name="correo" required>
+                <label for="resena">Escribe tu reseña o comentario</label>
+                <textarea id="resena" name="resena" placeholder="Cuéntanos qué opinas o comparte tu experiencia…" required></textarea>
             </div>
-
-            <div class="form-group">
-                <label for="telefono">Número de Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" required>
-            </div>
-
-            <div class="form-group">
-                <label for="comentario">Escribe tu comentario o reseña.</label>
-                <textarea id="comentario" name="comentario" placeholder="Cuéntanos qué opinas o comparte tu experiencia…" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Enviar comentario</button>
+            
+            <button type="submit" class="submit-btn">Enviar reseña</button>
+            
             <!-- Botón regresar centrado -->
             <div class="centrar-boton">
                 <a href="../index.html" title="Regresar" class="btn-regresar">Regresar</a>

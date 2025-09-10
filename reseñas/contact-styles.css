@@ -80,16 +80,7 @@ body {
 
 /* Form Groups */
 .form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-row {
-    display: flex;
-    gap: 1rem;
-}
-
-.form-row .form-group {
-    flex: 1;
+    margin-bottom: 2rem;
 }
 
 label {
@@ -101,8 +92,6 @@ label {
 }
 
 input[type="text"],
-input[type="email"],
-input[type="tel"],
 textarea {
     width: 100%;
     padding: 12px 16px;
@@ -114,8 +103,6 @@ textarea {
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
 textarea:focus {
     outline: none;
     border-color: #48b401;
@@ -125,7 +112,7 @@ textarea:focus {
 
 textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 150px;
 }
 
 /* Submit Button */
@@ -243,11 +230,6 @@ textarea {
 
     .form-container {
         padding: 2rem;
-    }
-
-    .form-row {
-        flex-direction: column;
-        gap: 0;
     }
 
     .contact-details {
