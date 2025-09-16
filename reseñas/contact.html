@@ -19,16 +19,17 @@
         <h2 class="form-title">RESEÑAS</h2>
         <p class="form-subtitle">Te invitamos a descubrir todos los beneficios de nuestras soluciones de monitoreo energético</p>
         
-        <form id="contactForm">
+        <form id="contactForm" onsubmit="enviarResena(event)" >
             <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <label for="username">Nombre</label>
+                <input type="text" id="username" name="username" required>
             </div>
 
             <div class="form-group">
-                <label for="resena">Escribe tu reseña o comentario</label>
-                <textarea id="resena" name="resena" placeholder="Cuéntanos qué opinas o comparte tu experiencia…" required></textarea>
+                <label for="content">Escribe tu reseña o comentario</label>
+                <textarea id="content" name="content" placeholder="Cuéntanos qué opinas o comparte tu experiencia…" required></textarea>
             </div>
+            <div id="message"></div>
             
             <button type="submit" class="submit-btn">Enviar reseña</button>
             
@@ -58,6 +59,6 @@
         </div>
     </div>
 
-    <script src="js/contact_form.js"></script>
+    <script src="contact_form.js"></script>
 </body>
 </html>
