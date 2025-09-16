@@ -11,14 +11,65 @@ body {
     overflow-x: hidden;
 }
 
+/* Scroll Reveal Animation Classes */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(7, 134, 7, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(7, 134, 7, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(7, 134, 7, 0); }
+}
+
 /* Navbar */
 .navbar {
-    background: linear-gradient(135deg,#3e9801,#48b401,#5eda0b );
+    background: linear-gradient(135deg, #3e9801, #48b401, #5eda0b);
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
     padding: 1rem 2rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.navbar:hover {
+    box-shadow: 0 6px 30px rgba(0,0,0,0.15);
 }
 
 .nav-container {
@@ -46,6 +97,32 @@ body {
     font-weight: bold;
     color: #409c03;
     font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s;
+    opacity: 0;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(360deg);
+    box-shadow: 0 0 20px rgba(64, 156, 3, 0.5);
+}
+
+.logo:hover::before {
+    opacity: 1;
+    left: 100%;
 }
 
 .brand-info h1 {
@@ -53,12 +130,19 @@ body {
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: -5px;
+    transition: all 0.3s ease;
+}
+
+.brand-info:hover h1 {
+    text-shadow: 0 0 15px rgba(255,255,255,0.5);
+    transform: scale(1.02);
 }
 
 .brand-info p {
     color: #d4ffcee6;
     font-size: 0.9rem;
     font-style: italic;
+    transition: all 0.3s ease;
 }
 
 .search-bar {
@@ -76,6 +160,14 @@ body {
     font-size: 1rem;
     outline: none;
     background: rgba(255,255,255,0.95);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.search-bar input:focus {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 0 20px rgba(7, 134, 7, 0.3);
+    transform: scale(1.02);
 }
 
 .search-bar button {
@@ -90,12 +182,13 @@ body {
     width: 35px;
     height: 35px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .search-bar button:hover {
     background: #93c893ae;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.2);
+    box-shadow: 0 0 15px rgba(147, 200, 147, 0.6);
 }
 
 .nav-right {
@@ -103,50 +196,93 @@ body {
     gap: 20px;
     align-items: center;
 }
+
 .btn-contacto {
     background-color: #ffffff;
     color: #078607;
-    padding: 10px 20px;
+    padding: 12px 24px;
     margin-right: 10px;
     border: none;
     border-radius: 25px;
     font-weight: bold;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-contacto::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(7, 134, 7, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
 }
 
 .btn-contacto:hover {
     background-color: #078607;
-    color:#ffffff;
-    transform: scale(1.05);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Opcional: para que los iconos sociales no cambien */
-.btn-icono img {
-    transition: transform 0.2s;
-}
-.btn-icono img:hover {
+    color: #ffffff;
     transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(7, 134, 7, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.btn-contacto:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-contacto:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+.btn-icono {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 15%;
+    padding: 5px;
 }
 
 .btn-icono img {
-    transition: transform 0.3s ease;
-    border-radius: 10%;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 15%;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.btn-icono:hover {
+    transform: translateY(-5px) scale(1.1);
 }
 
 .btn-icono:hover img {
-    background: #48b401;
-    transform: scale(1.20);
+    transform: rotate(-10deg) scale(1.1);
+    filter: drop-shadow(0 8px 15px rgba(72, 180, 1, 0.4));
 }
-
 
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
     padding: 4rem 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(7, 134, 7, 0.03) 0%, transparent 70%);
+    animation: float 8s ease-in-out infinite;
 }
 
 .hero h2 {
@@ -154,7 +290,15 @@ body {
     font-size: 3rem;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    animation: fadeInUp 1s ease;
+    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2:hover {
+    transform: scale(1.02);
+    text-shadow: 0 0 20px rgba(7, 134, 7, 0.3);
+    transition: all 0.3s ease;
 }
 
 .hero p {
@@ -162,22 +306,71 @@ body {
     max-width: 800px;
     margin: 0 auto 2rem;
     color: #555;
-    animation: fadeInUp 1s ease 0.3s both;
+    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.hero p:hover {
+    color: #333;
+    transform: scale(1.01);
 }
 
 .divider {
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #078607, #63c423,#078607);
+    background: linear-gradient(90deg, #078607, #63c423, #078607);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite, expandWidth 1s ease 0.6s both;
     margin: 3rem auto;
     border-radius: 2px;
-    animation: expandWidth 1s ease 0.6s both;
+    position: relative;
+    z-index: 2;
 }
 
-/* Carousel */
+/* Carousel Section */
+.carousel-section {
+    background: linear-gradient(135deg, #fafdfab2, #f0f8f0);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(7, 134, 7, 0.02) 0%, transparent 70%);
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.carousel-section h2 {
+    color: #078607;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    animation: fadeInUp 1s ease;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.carousel-section h2:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(7, 134, 7, 0.3);
+}
+
 .carousel-container {
-    margin: 3rem 0;
-    padding: 0 2rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
 }
 
 .carousel {
@@ -188,11 +381,17 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 .carousel-inner {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .carousel-slide {
@@ -208,72 +407,116 @@ body {
     object-fit: cover;
     object-position: center;
     display: block;
+    transition: all 0.6s ease;
 }
 
+.carousel-slide:hover img {
+    transform: scale(1.1);
+}
+
+.image-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    padding: 2rem 1rem 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    transform: translateY(100%);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide:hover .image-title {
+    transform: translateY(0);
+}
 
 .carousel-nav {
-    position:absolute;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #2d5a2d;
-    color: rgb(255, 255, 255);
+    background: rgba(45, 90, 45, 0.8);
+    backdrop-filter: blur(10px);
+    color: white;
     border: none;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 100;
 }
 
 .carousel-nav:hover {
-    background: #1a3d1a;
-    top: 50%;
-    transform: translateY(-50%) scale(1.1);
+    background: rgba(26, 61, 26, 0.9);
+    transform: translateY(-50%) scale(1.2);
+    box-shadow: 0 0 20px rgba(45, 90, 45, 0.5);
+    animation: pulse 2s infinite;
 }
 
-.carousel-prev {
-    left: 20px;
+.carousel-nav:active {
+    transform: translateY(-50%) scale(0.9);
+    transition: transform 0.1s;
 }
 
-.carousel-next {
-    right: 20px;
-}
-/* ---------------  SOLO PARA EL CARRUSEL DE IMÁGENES --------------- */
-#imageCarousel .carousel-slide{
-    /* Centro la imagen dentro del slide para que el margen quede simétrico */
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding: 0.5rem;          /* ajusta el margen interno: 0.5 rem ≈ 8 px */
-    box-sizing: border-box;   /* hace que el padding no agrande el slide */
+.carousel-prev { left: 20px; }
+.carousel-next { right: 20px; }
+
+/* Image Carousel Specific */
+#imageCarousel .carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
 
-/* La imagen ahora mide el 90 % del slide; puede ser 85 %, 80 %, etc. */
-#imageCarousel .carousel-slide img{
+#imageCarousel .carousel-slide img {
     width: 90%;
     height: 90%;
-    object-fit: contain;      /* si quieres que no se recorte nada */
-    /* Si prefieres que siga “cubriendo” y se corte un poco, usa: object-fit: cover; */
-    border-radius: 10px;      /* opcional: bordes curvos para la foto */
-}
-#missionCarousel{
-    max-width: 1000px;            /* si quieres, déjalo fuera y heredará de .carousel */
+    object-fit: contain;
+    border-radius: 10px;
+    transition: all 0.4s ease;
 }
 
-/* Mission Vision Carousel */
+#imageCarousel .carousel-slide:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+#missionCarousel { max-width: 1000px; }
+
+/* Mission Carousel */
 .mission-carousel {
-    background: #f8fdf8;
+    background: linear-gradient(135deg, #f8fdf8, #eef7ee);
+    background-size: 200% 200%;
+    animation: gradientShift 18s ease infinite;
     padding: 4rem 2rem;
     overflow: hidden;
     position: relative;
 }
 
+.mission-carousel::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(7, 134, 7, 0.02) 0%, transparent 70%);
+    animation: float 12s ease-in-out infinite;
+}
+
 #missionCarouselInner {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .mission-slide {
@@ -281,67 +524,90 @@ body {
     padding: 3rem;
     text-align: center;
     background: linear-gradient(40deg, #ffffff, #fafffa);
+    background-size: 200% 200%;
+    animation: gradientShift 20s ease infinite;
     border-radius: 15px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Títulos */
+.mission-slide::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(7, 134, 7, 0.03), transparent);
+    transform: rotate(45deg);
+    transition: all 0.8s;
+    opacity: 0;
+}
+
+.mission-slide:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.mission-slide:hover::before {
+    opacity: 1;
+    left: 100%;
+}
+
 .mission-slide h3 {
     color: #078607;
     font-size: 2rem;
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-/* Párrafos */
+.mission-slide:hover h3 {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(7, 134, 7, 0.3);
+}
+
 .mission-slide p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
     max-width: 800px;
-}
-
-/* Botones de navegación del carrusel */
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(34, 143, 20, 0.541);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-    transition: background 0.3s ease;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-.carousel-prev {
-    left: 10px;
+.mission-slide:hover p {
+    color: #333;
 }
-
-.carousel-next {
-    right: 10px;
-}
-
-.carousel-nav:hover {
-    background: rgba(14, 64, 8, 0.662);
-    top: 50%;
-    transform: translateY(-50%) scale(1.1);
-}
-
-
 
 /* How it works */
 .how-it-works {
     padding: 4rem 2rem;
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #fafafa);
+    background-size: 200% 200%;
+    animation: gradientShift 22s ease infinite;
     overflow: hidden;
     position: relative;
+}
+
+.how-it-works::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at bottom, rgba(7, 134, 7, 0.02) 0%, transparent 70%);
+    animation: float 14s ease-in-out infinite reverse;
 }
 
 .how-it-works h2 {
@@ -350,36 +616,89 @@ body {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.how-it-works h2:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(7, 134, 7, 0.3);
 }
 
 .how-content {
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .monitor-explanation {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
-    background: #f8fdf8;
+    background: linear-gradient(135deg, #f8fdf8, #f0f7f0);
+    background-size: 200% 200%;
+    animation: gradientShift 25s ease infinite;
     padding: 2rem;
     border-radius: 15px;
     border-left: 5px solid #216221c9;
     margin-bottom: 3rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Quality Policies */
+.monitor-explanation::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(33, 98, 33, 0.1), transparent);
+    transition: all 0.8s;
+}
+
+.monitor-explanation:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-left-color: #078607;
+}
+
+.monitor-explanation:hover::before {
+    left: 100%;
+}
+
+/* Quality Section */
 .quality-section {
     background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+    background-size: 200% 200%;
+    animation: gradientShift 20s ease infinite;
     padding: 4rem 2rem;
     min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.quality-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(7, 134, 7, 0.03) 0%, transparent 70%);
+    animation: float 16s ease-in-out infinite;
 }
 
 .quality-content {
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .quality-section h2 {
@@ -387,6 +706,12 @@ body {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.quality-section h2:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(7, 134, 7, 0.3);
 }
 
 .metrics-display {
@@ -397,15 +722,37 @@ body {
 }
 
 .metric-card {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #fafafa);
+    background-size: 200% 200%;
+    animation: gradientShift 30s ease infinite;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(7, 134, 7, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: all 0.6s;
 }
 
 .metric-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.metric-card:hover::before {
+    transform: scale(1);
 }
 
 .metric-value {
@@ -413,17 +760,49 @@ body {
     font-weight: bold;
     color: #2d5a2d;
     margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.metric-card:hover .metric-value {
+    color: #078607;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(7, 134, 7, 0.3);
 }
 
 .metric-label {
     color: #555;
     font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.metric-card:hover .metric-label {
+    color: #333;
+    transform: scale(1.05);
 }
 
 /* Reviews */
 .reviews-section {
     padding: 4rem 2rem;
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    background-size: 200% 200%;
+    animation: gradientShift 25s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top, rgba(7, 134, 7, 0.02) 0%, transparent 70%);
+    animation: float 18s ease-in-out infinite reverse;
 }
 
 .reviews-section h2 {
@@ -431,6 +810,14 @@ body {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.reviews-section h2:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(7, 134, 7, 0.3);
 }
 
 .reviews-grid {
@@ -439,43 +826,92 @@ body {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .review-card {
-    background: #f8fdf8;
+    background: linear-gradient(135deg, #f8fdf8, #f0f7f0);
+    background-size: 200% 200%;
+    animation: gradientShift 35s ease infinite;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.review-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(109, 139, 109, 0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: all 0.6s;
 }
 
 .review-card:hover {
     background: #6d8b6d34;
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.stars {
-    color: #ffd700;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.review-card:hover::before {
+    transform: scale(1);
 }
 
 .review-text {
     font-style: italic;
     margin-bottom: 1rem;
     color: #555;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.review-card:hover .review-text {
+    color: #333;
+    transform: scale(1.02);
 }
 
 .reviewer-name {
     font-weight: bold;
     color: #2d5a2d;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.review-card:hover .reviewer-name {
+    color: #078607;
+    transform: scale(1.05);
 }
 
 /* Footer */
 .footer {
     background: linear-gradient(135deg, #51cc00, #078607);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
     color: white;
     padding: 3rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
 }
 
 .footer-content {
@@ -485,19 +921,34 @@ body {
     grid-template-columns: 1fr 3px 1fr 3px 1fr;
     gap: 2rem;
     align-items: start;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-divider {
-    background: #038e03;
+    background: linear-gradient(to bottom, #038e03, #51cc00, #038e03);
+    background-size: 100% 200%;
+    animation: gradientShift 8s ease infinite;
     width: 3px;
     height: 100%;
     border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.footer-divider:hover {
+    transform: scaleY(1.1);
+    box-shadow: 0 0 10px rgba(3, 142, 3, 0.5);
 }
 
 .footer-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
 }
 
 .footer-logo .logo {
@@ -505,15 +956,64 @@ body {
     height: 80px;
     font-size: 2rem;
     margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.footer-logo:hover .logo {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.footer-logo p {
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover p {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.contact-info {
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px) scale(1.02);
 }
 
 .contact-info h3 {
     color: white;
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.5));
+    transition: all 0.4s ease;
+}
+
+.contact-info:hover h3::after {
+    width: 100%;
 }
 
 .contact-info p {
     margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-info p:hover {
+    transform: translateX(10px);
+    color: #d4ffce;
+    text-shadow: 0 0 8px rgba(212, 255, 206, 0.5);
 }
 
 .footer-bottom {
@@ -521,13 +1021,32 @@ body {
     margin-top: 2rem;
     padding-top: 2rem;
     color: #a8d4a8;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-/* Animations */
+.footer-bottom:hover {
+    color: #d4ffce;
+    text-shadow: 0 0 10px rgba(168, 212, 168, 0.5);
+    transform: scale(1.02);
+}
+
+/* Counter Animation for Metrics */
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.8); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.metric-value.animate {
+    animation: countUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Enhanced Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
@@ -538,10 +1057,75 @@ body {
 @keyframes expandWidth {
     from {
         width: 0;
+        opacity: 0;
     }
     to {
         width: 100px;
+        opacity: 1;
     }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+.shimmer-effect {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Magnetic Effect for Interactive Elements */
+.magnetic {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Parallax Hover Effect */
+.parallax-hover {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.parallax-hover:hover {
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg) translateZ(10px);
+}
+
+/* Glow Effect */
+.glow-on-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s;
+}
+
+.glow-on-hover:hover::before {
+    left: 100%;
+}
+
+/* Loading Animation for Page Load */
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-load {
+    animation: pageLoad 0.8s ease forwards;
 }
 
 /* Smooth scroll */
@@ -549,7 +1133,27 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Responsive */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #078607, #48b401);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #48b401, #078607);
+    transform: scale(1.1);
+}
+
+/* Responsive Animations */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -561,7 +1165,7 @@ html {
         max-width: 100%;
     }
 
-    .hero h1 {
+    .hero h2 {
         font-size: 2rem;
     }
 
@@ -572,5 +1176,40 @@ html {
 
     .footer-divider {
         display: none;
+    }
+    
+    /* Reduce animations on mobile for performance */
+    .floating {
+        animation: none;
+    }
+    
+    .carousel-section::before,
+    .hero::before,
+    .mission-carousel::before {
+        display: none;
+    }
+    
+    /* Simpler hover effects on mobile */
+    .metric-card:hover,
+    .review-card:hover {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .floating,
+    .carousel-section::before,
+    .hero::before {
+        animation: none !important;
     }
 }
