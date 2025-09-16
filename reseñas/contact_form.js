@@ -1,23 +1,42 @@
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Obtener valores del formulario
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const correo = document.getElementById('correo').value;
-    const telefono = document.getElementById('telefono').value;
-    const comentario = document.getElementById('comentario').value;
-    
-    // Validación simple
-    if (!nombre || !apellido || !correo || !telefono) {
-        alert('Por favor, completa todos los campos obligatorios.');
+
+
+function enviarResena(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim() || "Anónimo";
+    const content  = document.getElementById("content").value.trim();
+    const messageDiv = document.getElementById("message"); // ✅ ahora está definida
+
+    messageDiv.textContent = "";
+    console.log(content, username);
+
+    if (!content) {
+        messageDiv.textContent = "El contenido de la reseña es obligatorio.";
         return;
     }
-    
-    // Simulación de envío
-    alert('¡Gracias por tu solicitud! Te contactaremos pronto para programar tu reunión.');
-    
-    // Limpiar formulario
-    this.reset();
-    
-});
+
+    fetch("http://localhost/ecoenergy/backend/crear_resena.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: username,
+            content: content
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            messageDiv.textContent = data.error;
+        } else {
+            document.getElementById("content").value  = "";
+            document.getElementById("username").value = "";
+            alert("¡Reseña enviada con éxito!");
+        }
+    })
+    .catch(error => {
+        console.error("Error al enviar reseña:", error);
+        messageDiv.textContent = "Error al conectar con el servidor.";
+    });
+}

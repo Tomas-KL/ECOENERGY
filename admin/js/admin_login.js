@@ -3,7 +3,7 @@ if (sessionStorage.getItem('usuario') === 'admin') {
     window.location.href = 'tabla.html'; // Redirige al panel si ya está logueado
 }
 // Función para manejar el login
- async function handleLogin(event) {
+async function handleLogin(event) {
     event.preventDefault(); // Previene el envío normal del formulario
     
     const username = document.getElementById('username').value;
@@ -29,7 +29,7 @@ if (sessionStorage.getItem('usuario') === 'admin') {
     }
 } catch (error) {
       console.log(error);
-    document.getElementById("mensaje").innerText = "Error de conexión con el servidorjmmm.";
+    document.getElementById("mensaje").innerText = "Error de conexión con el servidor.";
     document.getElementById("mensaje").style.color = "red";
   }
 
