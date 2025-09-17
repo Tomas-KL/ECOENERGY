@@ -38,20 +38,16 @@
             <p>Gestiona todas las reseñas recibidas y controla su visibilidad en el sitio web</p>
             <div class="panel-stats">
                 <div class="stat-card">
-                    <div class="stat-number">8</div>
+                    <div class="stat-number" id="total_resenas"></div>
                     <div class="stat-label">Total</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">5</div>
+                    <div class="stat-number" id="visibles_resenas"></div>
                     <div class="stat-label">Visibles</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">3</div>
+                    <div class="stat-number" id="invisibles_resenas"></div>
                     <div class="stat-label">Ocultas</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">2</div>
-                    <div class="stat-label">Hoy</div>
                 </div>
             </div>
         </div>
@@ -67,7 +63,7 @@
                 </select>
             </div>
             <div class="filter-group">
-                <input type="text" id="searchInput" class="search-input" placeholder="Buscar por nombre...">
+
                 <button class="btn-refresh">Actualizar</button>
             </div>
         </div>
@@ -101,6 +97,7 @@
     </div>
 
     <script src="js/tabla_admin.js"></script>
-    <script src="js/resenas_admin.js"></script> 
+    <script src="js/resenas_admin.js"></script>
+    <script src="js/delete_reviews.js"></script>
 </body>
 </html>
