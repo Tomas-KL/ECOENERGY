@@ -22,7 +22,6 @@
                 </div>
             </div>
             <div class="admin-actions">
-                <div class="admin-user">Admin:XD</div>
                 <button onclick="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
             </div>
         </div>
@@ -52,22 +51,6 @@
             </div>
         </div>
 
-        <!-- Controles de filtros y búsqueda -->
-        <div class="table-controls">
-            <div class="filter-group">
-                <label for="statusFilter">Filtrar por visibilidad:</label>
-                <select id="statusFilter" class="filter-select">
-                    <option value="all">Todas</option>
-                    <option value="visible">Visibles</option>
-                    <option value="hidden">Ocultas</option>
-                </select>
-            </div>
-            <div class="filter-group">
-
-                <button class="btn-refresh">Actualizar</button>
-            </div>
-        </div>
-
         <!-- Tabla principal de reseñas -->
         <div class="table-container">
             <table class="requests-table">
@@ -88,14 +71,7 @@
             </table>
         </div>
 
-        <!-- Información de paginación -->
-        <div class="pagination-container">
-            <div class="pagination-info">
-                Mostrando 8 de 8 reseñas totales
-            </div>
-        </div>
-    </div>
-
+        
     <script src="js/tabla_admin.js"></script>
     <script src="js/resenas_admin.js"></script>
     <script src="js/delete_reviews.js"></script>
