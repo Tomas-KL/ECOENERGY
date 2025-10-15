@@ -285,13 +285,49 @@ COLUMNAS ESPECÍFICAS DE LA TABLA
 }
 
 .col-actions {
-    width: 100px;
+    width: 150px;
     text-align: center;
 }
 
 /* ===========================================
 ESTILOS PARA CONTENIDO DE CELDAS
 =========================================== */
+.input-edit {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-edit:focus {
+    outline: 2px solid #48b401;
+    outline-offset: 2px;
+    border-radius: 4px;
+    background: #f8fdf8;
+}
+
+.textarea-edit {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: transparent;
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+}
+
+.textarea-edit:focus {
+    outline: 2px solid #48b401;
+    outline-offset: 2px;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
 .message-cell {
     max-height: 100px;
     overflow-y: auto;
@@ -361,8 +397,39 @@ INDICADORES DE VISIBILIDAD
 }
 
 /* ===========================================
+CONTENEDOR DE BOTONES DE ACCIÓN
+=========================================== */
+.actions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================================
 BOTONES DE ACCIÓN
 =========================================== */
+.btn-save {
+    background: linear-gradient(135deg, #078607, #48b401);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    max-width: 100px;
+}
+
+.btn-save:hover {
+    background: linear-gradient(135deg, #065d05, #3a9001);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(7, 134, 7, 0.3);
+}
+
 .btn-delete {
     background: linear-gradient(135deg, #dc3545, #c82333);
     color: white;
@@ -373,6 +440,8 @@ BOTONES DE ACCIÓN
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: bold;
+    width: 100%;
+    max-width: 100px;
 }
 
 .btn-delete:hover {
@@ -442,6 +511,17 @@ RESPONSIVE DESIGN
     .panel-stats {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    .actions-container {
+        flex-direction: row;
+        gap: 0.3rem;
+    }
+    
+    .btn-save,
+    .btn-delete {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
     }
 }
 
